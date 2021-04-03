@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая заметка</title>
+    </head>
+<body>
+<div>
+    <form method = "post" action="/add">
+        <textarea type = "text" name = "title" style="width: 300px;" placeholder="Заголовок"></textarea>
+        <br/>
+        <textarea name = "content" style="width: 300px; height: 200px;" placeholder="Содержание"></textarea>
+        <br/>
+        <button type="submit">Добавить</button>
+        <button type="button" onclick="document.location='/main'">Назад</button>
+    </form>
+</div>
+</body>
+</html>

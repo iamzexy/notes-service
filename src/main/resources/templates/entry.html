@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${entry.title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+<body>
+<div>
+    <form id="del" method="post" action="delete"></form>
+    <form method = "post" action="update">
+        <textarea type = "text" name = "title" style="width: 300px;" th:text="${entry.title}" placeholder="Пустой заголовок"></textarea>
+        <br/>
+        <textarea name = "content" style="width: 300px; height: 200px;" th:text="${entry.content}"></textarea>
+        <br/>
+        <button type="submit" name="id" th:value="${entry.id}">Обновить</button>
+        <button type="button" onclick="document.location='/main'">Назад</button>
+        <button form="del" type="submit" name="id" th:value="${entry.id}">Удалить заметку</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Все заметки</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <script>
+        function myFunction() {
+            var x = document.getElementsByClassName('deletebtn');
+            var i;
+            for (i=0; i<x.length; i++){
+                if (x[i].style.display == 'none') {
+                    x[i].style.display = 'inline-block';
+                } else {
+                    x[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+<body>
+<form action="/search">
+    <input type="text" name="str" placeholder="Поиск">
+    <button type="submit">Найти</button>
+    <button type="button" onclick="document.location='/main'">Сброс</button>
+</form>
+<form id="del" style="display: none" method="post" action="delete"></form>
+</br>
+<button type="button" onclick="document.location='/new'">Добавить заметку</button>
+<button onclick="myFunction()">Удалить</button>
+</br>
+</br>
+<tr th:each="entry: ${entries}">
+    <div>
+    <a th:href="@{/entry(id=${entry.id})}" th:text="${entry.title == ''} ? ${entry.content} : ${entry.title}"></a>
+    <button class="deletebtn" style="display: none"  form="del" type="submit" name="id" th:value="${entry.id}">x</button>
+    </br>
+    </div>
+</tr>
+</body>
+</html>
